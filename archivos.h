@@ -35,21 +35,6 @@ SList slist_agregar_final(Slist lista, char const *provincia, int v_habitadas, i
  * 
  * Retorna el primer nodo de la lista creada.
  */
-SList csv_a_lista(char const* viviendas_provincia){
-	SList lista = NULL;
-	FILE* provincia_info = abrir_archivo(viviendas_provincia,"r");
-  
-  char *provincia;
-  int v_habitadas, v_deshabitadas, v_colectivas;
-  
-	for(; EOF != fscanf(provincia_info, "%s,%d,%d,%d\n", provincia, v_habitadas, v_deshabitadas, v_colectivas);)
-		lista = slist_agregar_final(lista, provincia, v_habitadas, v_deshabitadas, v_colectivas);
-
-	fclose(provincia_info);
-
-	return lista;
-}
-
-
+SList csv_a_lista(char const* viviendas_provincia);
 
 #endif

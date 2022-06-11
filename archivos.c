@@ -1,17 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-typedef struct _SNodo {
-	char *provincia;
-	int v_habitadas;
-	int v_deshabitadas;
-	int v_colectivas;
-	struct _SNodo *sig;
-} SNodo;
-
-typedef SList *Snodo;
-
-
 SNodo* slist_agregar_final(SNodo* lista, char const *provincia, int v_habitadas, int v_deshabitadas, int v_colectivas) {
 	SNodo *nuevo_nodo = malloc(sizeof(SNodo));
 
@@ -35,11 +24,16 @@ SNodo* slist_agregar_final(SNodo* lista, char const *provincia, int v_habitadas,
 
 
 SNodo* csv_a_archivo(char const* viviendas_provincia){
-	SNodo* lista = NULL;
+	SList lista = NULL;
 	FILE* provincia_info = abrir_archivo(viviendas_provincia,"r");
+  
+  char *provincia;
+  int v_habitadas, v_deshabitadas, v_colectivas;
 
-	for(int i = 0; EOF != fscanf(provincia_info, "%s,%d,%d,%d\n", provincia, v_habitadas, v_deshabitadas, v_colectivas); i++)
-		lista=slist_agregar_final(lista, provincia, v_habitadas, v_deshabitadas, v_colectivas);
+	for(; EOF != fscanf(provincia_info, "%s,%d,%d,%d\n", provincia, v_habitadas, v_deshabitadas, v_colectivas);)
+		lista = slist_agregar_final(lista, provincia, v_habitadas, v_deshabitadas, v_colectivas);
 
 	fclose(provincia_info);
+
+	return lista;
 }
