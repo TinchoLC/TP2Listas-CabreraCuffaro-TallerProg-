@@ -8,7 +8,7 @@ gcc main.c manejo_archivo.c menu.c ahorcado.c
 
 ## Explicación de separación de archivos y uso de los mismos.
 
-Planteamos un diagrama donde solo usaríamos 3 archivos que contengan código en C (con sus respectivas versiones .c y .h), además del archivo CSV que menciona el enunciad, el makefile y el mismo readme
+Planteamos un diagrama donde solo usaríamos 3 archivos que contengan código en C (con sus respectivas versiones .c y .h), además del archivo CSV que menciona el enunciado, el makefile y este mismo readme
 
 ### main
 Se utiliza la función main y se llama a las funciones necesarias para la realización correcta del enunciado.
