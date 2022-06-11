@@ -1,4 +1,4 @@
-typedef int (*Predicado) (*SNodo nodo);
+#include "filtros.h"
 
 SNodo* filter_listas(SNodo* lista, Predicado p){
 	SNodo* nodo_nuevo = NULL;
@@ -13,7 +13,7 @@ int mayor_mil_v_deshabitadas(SNodo* Nodo){
 	return Nodo->v_deshabitadas > 1000;
 }
 
-typedef int (*Operador) (*SNodo Nodo);
+
 
 SNodo* filter_fold_listas(*SNodo lista, Predicado p, Operador o){
 	return o(filter_listas(lista, p));
