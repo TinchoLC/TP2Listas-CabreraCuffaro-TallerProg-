@@ -1,6 +1,9 @@
 #ifndef ARCHIVOS_H
 #define ARCHIVOS_H
 
+#include <stdlib.h>
+#include <stdio.h>
+
 /* 
  * Usaremos la estructura SNodo
  * para trabajar con los datos

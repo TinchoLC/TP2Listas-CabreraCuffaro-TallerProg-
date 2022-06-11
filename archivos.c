@@ -1,5 +1,4 @@
-#include <stdlib.h>
-#include <stdio.h>
+#include "archivos.h"
 
 SNodo* slist_agregar_final(SNodo* lista, char const *provincia, int v_habitadas, int v_deshabitadas, int v_colectivas) {
 	SNodo *nuevo_nodo = malloc(sizeof(SNodo));
