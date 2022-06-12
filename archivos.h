@@ -1,26 +1,6 @@
 #ifndef ARCHIVOS_H
 #define ARCHIVOS_H
-
-#include <stdlib.h>
-#include <stdio.h>
-
-/* 
- * Usaremos la estructura SNodo
- * para trabajar con los datos
- */
-typedef struct _SNodo {
-	char* provincia;
-	int v_habitadas;
-	int v_deshabitadas;
-	int v_colectivas;
-	struct _SNodo* sig;
-} SNodo; 
-
-/* 
- * Como vamos a utilizar muchos punteros a Snodo, 
- * es efectivo crear una definición para estos.
- */
-typedef SNodo* SList;
+#include "listas_y_librerias.h"
 
 /*
  * Esta función va a tomar el primer nodo de una lista y todos los datos (excepto sig),del struct SNodo.
