@@ -1,10 +1,11 @@
 #ifndef FILTROS_H
 #define FILTROS_H
+#include "archivos.h"
 
 /*
  * Declaramos la función de tipo Predicado, que obtiene un puntero a SNodo y retorna un int (que va a utilizarse como boole).
  */
-typedef int (*Predicado) (*SNodo nodo);
+typedef int (*Predicado) (SNodo* nodo);
 
 /*
  * Esta función obtiene como argumentos, un puntero a SNodo (que es el primer nodo de una lista) y una función de tipo predicado
@@ -33,7 +34,7 @@ int mayor_mil_v_deshabitadas(SNodo* Nodo){
 /*
  * Declaramos la función de tipo operador, que obtiene un puntero a SNodo y retorna un int (resultado de una operación).
  */
-typedef int (*Operador) (*SNodo Nodo);
+typedef int (*Operador) (SNodo* Nodo);
 
 /*
  * Esta función obtiene como argumentos, un puntero a SNodo (que es el primer nodo de una lista),
@@ -42,7 +43,7 @@ typedef int (*Operador) (*SNodo Nodo);
  * Va a utilizar la función filter_listas para filtrar una lista con la función predicado, y luego utilizará la función
  * operador en la lista resultante para retornar lo que retorne la misma.
  */
-SNodo* filter_fold_listas(*SNodo lista, Predicado p, Operador o){
+int filter_fold_listas(SNodo* lista, Predicado p, Operador o){
 	return o(filter_listas(lista, p));
 }
 
@@ -59,7 +60,7 @@ int mayor_mil_v_colectivas(SNodo* Nodo){
  * Función de tipo operador, devuelve las viviendas totales que hay a lo largo de los nodos de una lista 
  * (v_habitadas + v_deshabitadas)
  */
-int suma_viviendas_totales(*SNodo lista){
+int suma_viviendas_totales(SNodo* lista){
 	int suma;
 	for(; lista != NULL;  lista = lista->sig){
 		suma += lista->v_habitadas;

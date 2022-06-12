@@ -9,19 +9,18 @@
  * para trabajar con los datos
  */
 typedef struct _SNodo {
-	char *provincia;
+	char* provincia;
 	int v_habitadas;
 	int v_deshabitadas;
 	int v_colectivas;
-	struct _SNodo *sig;
+	struct _SNodo* sig;
 } SNodo; 
 
 /* 
  * Como vamos a utilizar muchos punteros a Snodo, 
  * es efectivo crear una definición para estos.
  */
-typedef SList *Snodo;
-
+typedef SNodo* SList;
 
 /*
  * Esta función va a tomar el primer nodo de una lista y todos los datos (excepto sig),del struct SNodo.
@@ -30,7 +29,7 @@ typedef SList *Snodo;
  * Retorna la lista que le fue ingresada, 
  * si ninguna lista fue ingresada retorna el nodo que debería estar en su última posición.
  */
-SList slist_agregar_final(Slist lista, char const *provincia, int v_habitadas, int v_deshabitadas, int v_colectivas); 
+SList slist_agregar_final(SList lista, char* provincia, int v_habitadas, int v_deshabitadas, int v_colectivas); 
 
 /*
  * Esta función va a tomar un puntero a char que contenga el nombre del archivo ingresado al main (archivo CSV, 4 datos por linea),

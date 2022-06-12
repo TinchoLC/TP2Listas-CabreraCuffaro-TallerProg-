@@ -1,11 +1,11 @@
 #include "archivos.h"
 
-SNodo* slist_agregar_final(SNodo* lista, char const *provincia, int v_habitadas, int v_deshabitadas, int v_colectivas) {
+SNodo* slist_agregar_final(SNodo* lista, char *provincia, int v_habitadas, int v_deshabitadas, int v_colectivas) {
   SNodo *nuevo_nodo = malloc(sizeof(SNodo));
 
-  largo_nombre_provincia = strlen(provincia);
+  int largo_nombre_provincia = strlen(provincia);
   nuevo_nodo->provincia = malloc(sizeof(char) * (largo_nombre_provincia + 1));
-  provincia;
+  nuevo_nodo->provincia = provincia;
   nuevo_nodo->v_habitadas = v_habitadas;
   nuevo_nodo->v_deshabitadas = v_deshabitadas;
   nuevo_nodo->v_colectivas = v_colectivas;
