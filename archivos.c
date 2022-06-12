@@ -1,7 +1,7 @@
 #include "archivos.h"
 
 SNodo* slist_agregar_final(SNodo* lista, char const *provincia, int v_habitadas, int v_deshabitadas, int v_colectivas) {
-	SNodo *nuevo_nodo = malloc(sizeof(SNodo));
+  SNodo *nuevo_nodo = malloc(sizeof(SNodo));
 
   largo_nombre_provincia = strlen(provincia);
   nuevo_nodo->provincia = malloc(sizeof(char) * (largo_nombre_provincia + 1));
@@ -23,16 +23,16 @@ SNodo* slist_agregar_final(SNodo* lista, char const *provincia, int v_habitadas,
 
 
 SNodo* csv_a_archivo(char const* viviendas_provincia){
-	SList lista = NULL;
-	FILE* provincia_info = abrir_archivo(viviendas_provincia,"r");
+  SList lista = NULL;
+  FILE* provincia_info = abrir_archivo(viviendas_provincia,"r");
   
   char *provincia;
   int v_habitadas, v_deshabitadas, v_colectivas;
 
-	for(; EOF != fscanf(provincia_info, "%s,%d,%d,%d\n", provincia, v_habitadas, v_deshabitadas, v_colectivas);)
-		lista = slist_agregar_final(lista, provincia, v_habitadas, v_deshabitadas, v_colectivas);
+  for(; EOF != fscanf(provincia_info, "%s,%d,%d,%d\n", provincia, &v_habitadas, &v_deshabitadas, &v_colectivas);)
+    lista = slist_agregar_final(lista, provincia, v_habitadas, v_deshabitadas, v_colectivas);
 
-	fclose(provincia_info);
+  fclose(provincia_info);
 
-	return lista;
+  return lista;
 }
