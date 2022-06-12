@@ -22,7 +22,7 @@ SNodo* slist_agregar_final(SNodo* lista, char *provincia, int v_habitadas, int v
 }
 
 
-SNodo* csv_a_archivo(char const* viviendas_provincia){
+SList csv_a_archivo(char const* viviendas_provincia){
   SList lista = NULL;
   FILE* provincia_info = abrir_archivo(viviendas_provincia,"r");
   
