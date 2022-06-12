@@ -1,6 +1,6 @@
 #ifndef FILTROS_H
 #define FILTROS_H
-#include "archivos.h"
+#include "listas_y_librerias.h"
 
 /*
  * Declaramos la función de tipo Predicado, que obtiene un puntero a SNodo y retorna un int (que va a utilizarse como boole).
