@@ -7,10 +7,7 @@ FILE* abrir_archivo(const char *nombre_archivo, char *modo) {
   return archivo;
 }
 
-char* sacar_string(char* csv_line, int* mover_linea){
-
-  char *string = malloc(sizeof(char)*ESPACIO_MAX_STRING);
-
+char* sacar_string(char* csv_line, int* mover_linea, char* string){
   for(int i = 0 ; CSV_LINE_MOV !=',' ;){
     STRING_MOVI = CSV_LINE_MOV; // Se va copiando el contenido de la linea en un string, caracter por caracter
     MOV++; // Se aumenta el contador sobre la posicion de la linea del archivo
@@ -18,20 +15,18 @@ char* sacar_string(char* csv_line, int* mover_linea){
     STRING_MOVI = '\0'; // Recordar, siempre hay que poner un terminador! (Lettieri enseñanzas)
   }
   MOV++; // Para ignorar la ','
-
   return string; // ACA FALTA UN FREE FALTA UN FREEEE
 } 
 
-int sacar_int(char* csv_line, int* mover_linea){
-  return atoi(sacar_string(csv_line, mover_linea)); 
+int sacar_int(char* csv_line, int* mover_linea, char* string){
+  return atoi(sacar_string(csv_line, mover_linea, string)); 
 } 
 
 SList slist_agregar_final(SList lista, char *provincia, int v_habitadas, int v_deshabitadas, int v_colectivas) {
   SList nuevo_nodo = malloc(sizeof(SNodo));
-
   int largo_nombre_provincia = strlen(provincia);
   nuevo_nodo->provincia = malloc(sizeof(char) * (largo_nombre_provincia + 1)); // aca un free
-  nuevo_nodo->provincia = provincia;
+  strcpy(nuevo_nodo->provincia,provincia);
   nuevo_nodo->v_habitadas = v_habitadas;
   nuevo_nodo->v_deshabitadas = v_deshabitadas;
   nuevo_nodo->v_colectivas = v_colectivas;
@@ -57,7 +52,7 @@ void slist_destruir(SList lista) {
   }
 }
 
-void slits_imprimir(SList lista) {
+void slist_imprimir(SList lista) {
   for (SList nodo = lista; nodo != NULL; nodo = nodo->sig)
     printf("  %s  ||  %d  ||  %d  ||  %d  \n", nodo->provincia, nodo->v_habitadas, nodo->v_deshabitadas, nodo->v_colectivas);
 }
@@ -65,23 +60,21 @@ void slits_imprimir(SList lista) {
 SList csv_a_lista(char const* viviendas_provincia){
   SList lista = NULL;
   FILE* provincia_info = abrir_archivo(viviendas_provincia,"r");
-  char *linea_de_csv = malloc(sizeof(char)*ESPACIO_MAX_LINEA_CSV), *provincia = malloc(sizeof(char)*ESPACIO_MAX_STRING);
+  char *linea_de_csv = malloc(sizeof(char)*ESPACIO_MAX_LINEA_CSV), *provincia = malloc(sizeof(char)*ESPACIO_MAX_STRING), *string = malloc(sizeof(char)*ESPACIO_MAX_STRING);
   int v_habitadas, v_deshabitadas, v_colectivas, mover_linea;
 
   fscanf(provincia_info, "%[^\n] ", linea_de_csv); // Ignorar primera linea
-
   for(; EOF !=  fscanf(provincia_info, "%[^\n] ", linea_de_csv);){
-    mover_linea=0;
-    provincia = sacar_string(linea_de_csv,&mover_linea);
-    v_habitadas = sacar_int(linea_de_csv, &mover_linea);
-    v_deshabitadas = sacar_int(linea_de_csv,&mover_linea);
-    v_colectivas = sacar_int(linea_de_csv,&mover_linea);
 
+    mover_linea=0;
+    strcpy(provincia,sacar_string(linea_de_csv,&mover_linea,string));
+    v_habitadas = sacar_int(linea_de_csv, &mover_linea,string);
+    v_deshabitadas = sacar_int(linea_de_csv,&mover_linea,string);
+    v_colectivas = sacar_int(linea_de_csv,&mover_linea,string);
     lista = slist_agregar_final(lista, provincia, v_habitadas, v_deshabitadas, v_colectivas);
   }
   
-  free(linea_de_csv); free(provincia);
-
+  free(linea_de_csv); free(provincia); free(string);
   fclose(provincia_info);
 
   return lista;

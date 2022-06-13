@@ -40,23 +40,25 @@ FILE* abrir_archivo(const char *nombre_archivo, char *modo);
 /*
  * Esta funcion recibe un puntero a char que apunta al primer caracter de una linea
  * de un archivo CSV y además recibe un puntero a int que apunta al numero que 
- * indica en que caracter de la linea estamos en ese momento.
+ * indica en que caracter de la linea estamos en ese momento. Obtiene adicionalmente un
+ * string que es el que luego retornará.
  *
  * Retorna un string con todo lo que haya antes de la siguiente coma del archivo CSV
  * a partir de el corrimiento de la linea (mover linea). Además modifica el int al que apunta mover_linea
  * dejándolo en la posición siguiente a la coma.
  */
-char* sacar_string(char* csv_line, int* mover_linea);
+char* sacar_string(char* csv_line, int* mover_linea, char* string);
 
 /*
  * Esta funcion recibe un puntero a char que apunta al primer caracter de una linea
  * de un archivo CSV y además recibe un puntero a int que apunta al numero que 
- * indica en que caracter de la linea estamos en ese momento.
+ * indica en que caracter de la linea estamos en ese momento. Obtiene adicionalmente un
+ * string que es el que luego retornará.
  *
  * Utiliza la función sacar_string y le aplica la función atoi (de stdlib.h) para retornar
  * un entero con los numeros dentro del string obtenido.
  */
-int sacar_int(char* csv_line, int* mover_linea);
+int sacar_int(char* csv_line, int* mover_linea, char* string);
 
 /*
  * Esta función va a tomar el primer nodo de una lista y todos los datos (excepto sig),del struct SNodo.
