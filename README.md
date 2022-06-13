@@ -3,7 +3,7 @@
 
 ## Compilación
 
-gcc main.c manejo_archivo.c menu.c ahorcado.c
+gcc main.c archivos_listas.c filtros.c
 
 
 ## Explicación de separación de archivos y uso de los mismos.
