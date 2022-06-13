@@ -3,25 +3,23 @@
 
 ## Compilación
 
-gcc main.c manejo_archivo.c menu.c ahorcado.c
+gcc main.c archivos_listas.c filtros.c
 
 
 ## Explicación de separación de archivos y uso de los mismos.
 
-Planteamos un diagrama donde solo usaríamos 4 archivos que contengan código en C (con sus respectivas versiones .c y .h), además del archivo CSV que menciona el enunciad, el makefile y el mismo readme
+Planteamos un diagrama donde solo usaríamos 3 archivos que contengan código en C (teniendo en cuenta .c y .h), además del archivo CSV que menciona el enunciad, el makefile y el mismo readme.
 
 ### main
 Se utiliza la función main y se llama a las funciones necesarias para la realización correcta del enunciado.
 
-### archivos
+### archivos_listas
 Librería donde se va a trabajar con archivos y listas, contiene las funciones principales abrir_archivo y csv_a_lista (entre otras).
+ Este archivo está pensado para ser incluido en filtros.h
 
 ### filtros
 Librería donde se van a ubicar todas las funciones puntero, y las funciones solicitadas de filter_listas y filter_fold_listas
 
-### listas_y_librerias
-Librería donde se ubicaran todas las definiciones de listas y se incluirán las librerías que se van a utilizar en el programa
-(la idea es que esta misma se incluya en los headers de archivos y filtros.
 
 ## Explicación de decisiones durante del programa
 
@@ -29,3 +27,6 @@ Librería donde se ubicaran todas las definiciones de listas y se incluirán las
 
 ## Resolución de consignas:
 
+Consigna 6:
+
+Consigna 8: 
