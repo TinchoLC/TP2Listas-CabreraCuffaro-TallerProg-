@@ -27,3 +27,6 @@ Librería donde se van a ubicar todas las funciones puntero, y las funciones sol
 
 ## Resolución de consignas:
 
+Consigna 6:
+
+Consigna 8: 
