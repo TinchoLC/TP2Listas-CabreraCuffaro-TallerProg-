@@ -1,5 +1,4 @@
 #include "main.h"
-#include "filtros.h"
 
 int main(int argc, char const *argv[]) {
 
