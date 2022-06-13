@@ -1,6 +1,6 @@
 #ifndef FILTROS_H
 #define FILTROS_H
-#include "archivos_listas.h"
+#include "archivos.h"
 
 /*
  * Declaramos la función de tipo Predicado, que obtiene un puntero a SNodo y retorna un int (que va a utilizarse como boole).
@@ -13,7 +13,7 @@ typedef int (*Predicado) (SNodo* nodo);
  * Va a crear una nueva lista, donde solo estén presentes los nodos de la lista ingresada que cumplan con lo que
  * la funcion predicado pida, se retornará la lista nueva.
  */
-SList filter_listas(SNodo* lista, Predicado p);
+SNodo* filter_listas(SNodo* lista, Predicado p);
 
 /*
  * Función de tipo predicado, devuelve:
