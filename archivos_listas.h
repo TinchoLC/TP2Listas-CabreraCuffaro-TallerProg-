@@ -73,7 +73,12 @@ SList slist_agregar_final(SList lista, char* provincia, int v_habitadas, int v_d
  */
 void slist_destruir(SList lista);
 
-}
+/*
+ * Obtiene el primer nodo de una lista y muestra todos los campos de
+ * todos los nodos de la misma (utiliza solamente printf).
+ */
+void slist_imprimir(SList lista);
+
 /*
  * Esta función va a tomar un puntero a char que contenga el nombre del archivo ingresado al main (archivo CSV, 4 datos por linea),
  * lo va a abrir, y va crear una lista, haciendo uso de la funcion slist_agregar_final.
