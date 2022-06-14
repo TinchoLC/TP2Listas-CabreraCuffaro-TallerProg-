@@ -6,6 +6,8 @@
 3. [Decisiones tomadas](#decisiones-tomadas)
 4. [Resolución de consignas](#Resolución-de-consignas)
 
+***
+
 ## Compilación
 
 gcc main.c archivos_listas.c filtros.c
