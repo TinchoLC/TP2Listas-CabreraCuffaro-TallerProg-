@@ -8,7 +8,7 @@ FILE* abrir_archivo(const char *nombre_archivo, char *modo) {
 }
 
 char* sacar_string(char* csv_line, int* mover_linea, char* string){
-  for (int i = 0; CSV_LINE_MOV != ',' ;) {
+  for (int i = 0; CSV_LINE_MOV != ',';) {
     STRING_MOVI = CSV_LINE_MOV; // Se va copiando el contenido de la linea en un string, caracter por caracter
     MOV++; // Se aumenta el contador sobre la posicion de la linea del archivo
     i++; // El contador i se utiliza para viajar en la linea del nuevo string
