@@ -53,10 +53,12 @@ void slist_destruir(SList lista) {
 }
 
 void slist_imprimir(SList lista) {
-  printf("+------------------------------------------------------+---------+--------+------+\n");
+  printf("+------------------------------------------------------+-------------+----------------+--------------+\n");
+  printf("|                       Provincia                      | V habitadas | V deshabitadas | V colectivas |\n");
+  printf("+------------------------------------------------------+-------------+----------------+--------------+\n");
   for (SList nodo = lista; nodo != NULL; nodo = nodo->sig)
-    printf("| %-52s | %-7d | %-6d | %-4d |\n", nodo->provincia, nodo->v_habitadas, nodo->v_deshabitadas, nodo->v_colectivas);
-  printf("+------------------------------------------------------+---------+--------+------+\n");
+    printf("| %-52s | %-11d | %-14d | %-12d |\n", nodo->provincia, nodo->v_habitadas, nodo->v_deshabitadas, nodo->v_colectivas);
+  printf("+------------------------------------------------------+-------------+----------------+--------------+\n");
 }
 
 SList csv_a_lista(char const* viviendas_provincia){
