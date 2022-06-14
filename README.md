@@ -40,6 +40,8 @@ Librería donde se van a ubicar todas las funciones puntero, y las funciones sol
 
 - Para facilitar la lectura de la función sacar_string, decidimos utilizar constantes, de esta manera, el código es mucho más entendible, pero en el pre-procesado queda exactamente igual que como estaría si no las utilizaramos, lo que nos asegura que no tiene ningún impacto negativo en el funcionamiento del programa.
 
+- Creamos la función sacar_string antes de enterarnos de la existencia de la ya existente función strtok. Si bien entendemos que strtok se puede utilizar para nuestro programa decidimos no reemplazar la función creada para recibir una opinión y corrección de la misma (ya que hacerla nos pareció interesante por su manejo de punteros).
+
 - Dentro de archivos_listas.c en las función de slist_imprimir, más especificamente en esta parte: "| %-52s | %-11d | %-14d | %-12d |\n", tiene esta combinación de letras y números que a simple vista son extraños pero que en realidad cumplen la función de darle un formato uniforme a cada fila sin importar los valores que se le ingrese. La primera columna tiene esto ya que la provincia con el nombre más largo (Tierra del Fuego y demás) posee un largo de 52 carácteres y de esta manera reservamos los 52 carácteres que van a tener los nombres como máximo. En cuanto al resto de columnas, fue producto de primero el tipo de carácter (el cuál es int en todos los casos) y luego el número es debido al largo del encabezado de la columna (claramente una provincia no va a tener más de 10^11 viviendas).
 
 - Utilizamos la herramienta de valgrind, y con esta misma pudimos certificar que nuestro programa funcionaba sin fugas de memoria:
