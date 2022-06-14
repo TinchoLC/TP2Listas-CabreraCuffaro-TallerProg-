@@ -10,6 +10,7 @@
 
 gcc main.c archivos_listas.c filtros.c
 
+***
 
 ## Separación y uso de archivos
 
@@ -25,6 +26,7 @@ Librería donde se va a trabajar con archivos y listas, contiene las funciones p
 ### filtros
 Librería donde se van a ubicar todas las funciones puntero, y las funciones solicitadas de filter_listas y filter_fold_listas
 
+***
 
 ## Decisiones tomadas
 
@@ -47,6 +49,8 @@ $ ==3119==     in use at exit: 0 bytes in 0 blocks
 $ ==3119==   total heap usage: 110 allocs, 110 frees, 2,282 bytes allocated
 ```
 
+***
+
 ## Resolución de consignas:
 
 ### Consigna 6
@@ -57,3 +61,5 @@ $ ==3119==   total heap usage: 110 allocs, 110 frees, 2,282 bytes allocated
  Teniendo un archivo de n cantidad de lineas, podemos crear una lista de n-1 cantidad de nodos (le restamos la linea de los encabezados). Al ser simplemente enlazada el peor de los casos es que el elemento se encuentre en el último nodo, es decir, el peor caso se da cuando se recorre n-1 nodos (en el caso del archivo propuesto "viviendas_por_provincia.csv", que tiene 25 lineas, en el peor caso se recorrerán 24 nodos).
 
  Poder asumir que la lista esta ordenada alfabeticamente no influye en nada, ya que los nodos trabajan con direcciones de memoria, y no son capaces de utilizar busquedas de tipo binario (exclusivas en estos casos de ordenamiento). Si en caso de querer realizar una busqueda de este tipo, previamente habrá que adaptar cada nodo para que posea la dirección del nodo en el centro de cada subdivisión (lo cuál si se piensa detenidamente es prácticamente inviable y se le agregaría una mayor complejidad de la necesaria).
+
+***
