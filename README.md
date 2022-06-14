@@ -3,10 +3,8 @@
 ## Tabla de contenidos
 1. [Compilación](#compilación)
 2. [Separación y uso de archivos](#Separación-y-uso-de-archivos)
-3. [Installation](#installation)
-4. [Collaboration](#collaboration)
-5. [FAQs](#faqs)
-
+3. [Decisiones tomadas](#decisiones-tomadas)
+4. [Resolución de consignas](#Resolución-de-consignas)
 
 ## Compilación
 
@@ -28,7 +26,7 @@ Librería donde se va a trabajar con archivos y listas, contiene las funciones p
 Librería donde se van a ubicar todas las funciones puntero, y las funciones solicitadas de filter_listas y filter_fold_listas
 
 
-## Explicación de decisiones durante del programa
+## Decisiones tomadas
 
 - Decidimos que la estructura del programa sea "main < filtros < archivos_listas", debido a que en el archivo de filtros eran necesarias algunas funciones tanto de listas como de manejo de archivos. Esto hace que en main.h solo se incluya filtros.h (porque archivos_listas.h fue incluido en este anteriormente).
 
