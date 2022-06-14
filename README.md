@@ -36,9 +36,9 @@ Librería donde se van a ubicar todas las funciones puntero, y las funciones sol
 - Dentro de archivos_listas.c en las función de slist_imprimir, más especificamente en esta parte: "| %-52s | %-11d | %-14d | %-12d |\n", tiene esta combinación de letras y números que a simple vista son extraños pero que en realidad cumplen la función de darle un formato uniforme a cada fila sin importar los valores que se le ingrese. La primera columna tiene esto ya que la provincia con el nombre más largo (Tierra del Fuego y demás) posee un largo de 52 carácteres y de esta manera reservamos los 52 carácteres que van a tener los nombres como máximo. En cuanto al resto de columnas, fue producto de primero el tipo de carácter (el cuál es int en todos los casos) y luego el número es debido al largo del encabezado de la columna (claramente una provincia no va a tener más de 10^11 viviendas).
 
 - Utilizamos la herramienta de valgrind, y con esta misma pudimos certificar que nuestro programa funcionaba sin fugas de memoria:
-==3119== HEAP SUMMARY:
-==3119==     in use at exit: 0 bytes in 0 blocks
-==3119==   total heap usage: 110 allocs, 110 frees, 2,282 bytes allocated
+$ ==3119== HEAP SUMMARY:
+$ ==3119==     in use at exit: 0 bytes in 0 blocks
+$ ==3119==   total heap usage: 110 allocs, 110 frees, 2,282 bytes allocated
 
 
 ## Resolución de consignas:
