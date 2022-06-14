@@ -3,7 +3,7 @@
 
 ## Compilación
 
-gcc main.c archivos_listas.c filtros.c
+gcc -std=c99 main.c archivos_listas.c filtros.c 
 
 
 ## Explicación de separación de archivos y uso de los mismos.
