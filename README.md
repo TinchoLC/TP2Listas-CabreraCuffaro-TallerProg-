@@ -1,12 +1,19 @@
 # TP 2 Listas (filtros) en C - Martin Cabrera, Ayrton Cuffaro - 5to Informática
 
+## Tabla de contenidos
+1. [Compilación](#compilación)
+2. [Separación y uso de archivos](#Separación-y-uso-de-archivos)
+3. [Installation](#installation)
+4. [Collaboration](#collaboration)
+5. [FAQs](#faqs)
+
 
 ## Compilación
 
 gcc main.c archivos_listas.c filtros.c
 
 
-## Explicación de separación de archivos y uso de los mismos.
+## Separación y uso de archivos
 
 Planteamos un diagrama donde solo usaríamos 3 archivos que contengan código en C (teniendo en cuenta .c y .h), además del archivo CSV que menciona el enunciado, el makefile y el mismo readme.
 
