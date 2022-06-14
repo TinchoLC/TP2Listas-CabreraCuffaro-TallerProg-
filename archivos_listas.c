@@ -8,14 +8,14 @@ FILE* abrir_archivo(const char *nombre_archivo, char *modo) {
 }
 
 char* sacar_string(char* csv_line, int* mover_linea, char* string){
-  for(int i = 0 ; CSV_LINE_MOV !=',' ;){
+  for (int i = 0; CSV_LINE_MOV != ',' ;) {
     STRING_MOVI = CSV_LINE_MOV; // Se va copiando el contenido de la linea en un string, caracter por caracter
     MOV++; // Se aumenta el contador sobre la posicion de la linea del archivo
     i++; // El contador i se utiliza para viajar en la linea del nuevo string
     STRING_MOVI = '\0'; // Recordar, siempre hay que poner un terminador! (Lettieri enseñanzas)
   }
   MOV++; // Para ignorar la ','
-  return string; // ACA FALTA UN FREE FALTA UN FREEEE
+  return string;
 } 
 
 int sacar_int(char* csv_line, int* mover_linea, char* string){
@@ -25,7 +25,8 @@ int sacar_int(char* csv_line, int* mover_linea, char* string){
 SList slist_agregar_final(SList lista, char *provincia, int v_habitadas, int v_deshabitadas, int v_colectivas) {
   SList nuevo_nodo = malloc(sizeof(SNodo));
   int largo_nombre_provincia = strlen(provincia);
-  nuevo_nodo->provincia = malloc(sizeof(char) * (largo_nombre_provincia + 1)); // aca un free
+  nuevo_nodo->provincia = malloc(sizeof(char) * (largo_nombre_provincia + 1)); 
+  
   strcpy(nuevo_nodo->provincia,provincia);
   nuevo_nodo->v_habitadas = v_habitadas;
   nuevo_nodo->v_deshabitadas = v_deshabitadas;
@@ -36,7 +37,7 @@ SList slist_agregar_final(SList lista, char *provincia, int v_habitadas, int v_d
     return nuevo_nodo;
 
   SList nodo_temp = lista;
-  for (; nodo_temp->sig != NULL; nodo_temp = nodo_temp->sig);
+  for (;nodo_temp->sig != NULL; nodo_temp = nodo_temp->sig);
 
   nodo_temp->sig = nuevo_nodo;
   return lista;
@@ -68,13 +69,14 @@ SList csv_a_lista(char const* viviendas_provincia){
   int v_habitadas, v_deshabitadas, v_colectivas, mover_linea;
 
   fscanf(provincia_info, "%[^\n] ", linea_de_csv); // Ignorar primera linea
-  for(; EOF !=  fscanf(provincia_info, "%[^\n] ", linea_de_csv);){
-
+  for (;EOF !=  fscanf(provincia_info, "%[^\n] ", linea_de_csv);) {
     mover_linea=0;
+    
     strcpy(provincia,sacar_string(linea_de_csv,&mover_linea,string));
     v_habitadas = sacar_int(linea_de_csv, &mover_linea,string);
     v_deshabitadas = sacar_int(linea_de_csv,&mover_linea,string);
     v_colectivas = sacar_int(linea_de_csv,&mover_linea,string);
+    
     lista = slist_agregar_final(lista, provincia, v_habitadas, v_deshabitadas, v_colectivas);
   }
   
