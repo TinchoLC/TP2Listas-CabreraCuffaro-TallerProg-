@@ -37,7 +37,7 @@ SList slist_agregar_final(SList lista, char *provincia, int v_habitadas, int v_d
     return nuevo_nodo;
 
   SList nodo_temp = lista;
-  for (;nodo_temp->sig != NULL; nodo_temp = nodo_temp->sig);
+  for (; nodo_temp->sig != NULL; nodo_temp = nodo_temp->sig);
 
   nodo_temp->sig = nuevo_nodo;
   return lista;
@@ -69,13 +69,13 @@ SList csv_a_lista(char const* viviendas_provincia){
   int v_habitadas, v_deshabitadas, v_colectivas, mover_linea;
 
   fscanf(provincia_info, "%[^\n] ", linea_de_csv); // Ignorar primera linea
-  for (;EOF !=  fscanf(provincia_info, "%[^\n] ", linea_de_csv);) {
+  for (; EOF != fscanf(provincia_info, "%[^\n] ", linea_de_csv);) {
     mover_linea=0;
     
-    strcpy(provincia,sacar_string(linea_de_csv,&mover_linea,string));
+    strcpy(provincia, sacar_string(linea_de_csv, &mover_linea,string));
     v_habitadas = sacar_int(linea_de_csv, &mover_linea,string);
-    v_deshabitadas = sacar_int(linea_de_csv,&mover_linea,string);
-    v_colectivas = sacar_int(linea_de_csv,&mover_linea,string);
+    v_deshabitadas = sacar_int(linea_de_csv, &mover_linea,string);
+    v_colectivas = sacar_int(linea_de_csv, &mover_linea,string);
     
     lista = slist_agregar_final(lista, provincia, v_habitadas, v_deshabitadas, v_colectivas);
   }
