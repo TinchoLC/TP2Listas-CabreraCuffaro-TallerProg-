@@ -25,12 +25,13 @@ int sacar_int(char* csv_line, int* mover_linea, char* string){
 SList slist_agregar_final(SList lista, char *provincia, int v_habitadas, int v_deshabitadas, int v_colectivas) {
   SList nuevo_nodo = malloc(sizeof(SNodo));
   int largo_nombre_provincia = strlen(provincia);
-  nuevo_nodo->provincia = malloc(sizeof(char) * (largo_nombre_provincia + 1)); 
+  nuevo_nodo->datos = malloc(sizeof(DProvincia));
+  nuevo_nodo->datos->provincia = malloc(sizeof(char) * (largo_nombre_provincia + 1)); 
   
-  strcpy(nuevo_nodo->provincia,provincia);
-  nuevo_nodo->v_habitadas = v_habitadas;
-  nuevo_nodo->v_deshabitadas = v_deshabitadas;
-  nuevo_nodo->v_colectivas = v_colectivas;
+  strcpy(nuevo_nodo->datos->provincia,provincia);
+  nuevo_nodo->datos->v_habitadas = v_habitadas;
+  nuevo_nodo->datos->v_deshabitadas = v_deshabitadas;
+  nuevo_nodo->datos->v_colectivas = v_colectivas;
   nuevo_nodo->sig = NULL;
 
   if (lista == NULL)
@@ -48,7 +49,8 @@ void slist_destruir(SList lista) {
   while (lista != NULL) {
     nodo_a_eliminar = lista;
     lista = lista->sig;
-    free(nodo_a_eliminar->provincia);
+    free(nodo_a_eliminar->datos->provincia);
+    free(nodo_a_eliminar->datos);
     free(nodo_a_eliminar);
   }
 }
@@ -58,7 +60,7 @@ void slist_imprimir(SList lista) {
   printf("|                       Provincia                      | V habitadas | V deshabitadas | V colectivas |\n");
   printf("+------------------------------------------------------+-------------+----------------+--------------+\n");
   for (SList nodo = lista; nodo != NULL; nodo = nodo->sig)
-    printf("| %-52s | %-11d | %-14d | %-12d |\n", nodo->provincia, nodo->v_habitadas, nodo->v_deshabitadas, nodo->v_colectivas);
+    printf("| %-52s | %-11d | %-14d | %-12d |\n", nodo->datos->provincia, nodo->datos->v_habitadas, nodo->datos->v_deshabitadas, nodo->datos->v_colectivas);
   printf("+------------------------------------------------------+-------------+----------------+--------------+\n");
 }
 
