@@ -13,16 +13,24 @@
 #define MOV (*mover_linea)  // Se utiliza como contador de movimiento
 
 /* 
- * Usaremos la estructura SNodo
- * para trabajar con los datos
+ * Usaremos la estructura DProvincia
+ * como campo de la estructura Nodo donde se ingresan los datos
  */
-typedef struct _SNodo {
+typedef struct _DProvincia {
     char *provincia;
     int v_habitadas;
     int v_deshabitadas;
     int v_colectivas;
+} DProvincia;
+
+/* 
+ * Usaremos la estructura SNodo
+ * para crear las listas
+ */
+typedef struct _SNodo {
+    struct DProvincia *datos;
     struct _SNodo *sig;
-} SNodo; 
+} SNodo;
 
 /* 
  * Como vamos a utilizar muchos punteros a Snodo, 
