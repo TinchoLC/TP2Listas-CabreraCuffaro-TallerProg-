@@ -38,6 +38,8 @@ Librería donde se van a ubicar todas las funciones puntero, y las funciones sol
 
 - Utilizamos listas simplemente enlazadas porque no nos es relevante recorrer la lista de otra manera que no sea linealmente y en comparación al resto de tipos de listas, es la que necesita menos memoria.
 
+- En la declaración del struct de SNodo declaramos un puntero a otra estructura llamada datos debido a que de esta manera podemos mantener generalidad en la definición de cada nodo. Con esta forma del nodo la creación de cada nodo no depende de los datos que se ingresen en los campos.
+
 - En las función sacar_string se nos presentó un problema, pediamos memoria para un string y luego lo retornabamos, haciendo imposible que luego podamos liberar la memoria. Para solucionar el problema decidimos pedir la memoria directamente en la funcion csv_a_archivo, e ingresar la direccion de memoria pedida como argumento en sacar_string, de esta manera no ibamos a perder esa dirección y luego podríamos utilizar la función free para liberar la memoria.
 
 - Para facilitar la lectura de la función sacar_string, decidimos utilizar constantes, de esta manera, el código es mucho más entendible, pero en el pre-procesado queda exactamente igual que como estaría si no las utilizaramos, lo que nos asegura que no tiene ningún impacto negativo en el funcionamiento del programa.
