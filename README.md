@@ -48,9 +48,9 @@ Librería donde se van a ubicar todas las funciones puntero, y las funciones sol
 
 - Utilizamos la herramienta de valgrind, y con esta misma pudimos certificar que nuestro programa funcionaba sin fugas de memoria:
 ```
-$ ==3119== HEAP SUMMARY:
-$ ==3119==     in use at exit: 0 bytes in 0 blocks
-$ ==3119==   total heap usage: 110 allocs, 110 frees, 2,282 bytes allocated
+$ ==4582== HEAP SUMMARY:
+$ ==4582==     in use at exit: 0 bytes in 0 blocks
+$ ==4582==   total heap usage: 165 allocs, 165 frees, 8,662 bytes allocated
 ```
 
 ***
