@@ -28,7 +28,7 @@ typedef struct _DProvincia {
  * para crear las listas
  */
 typedef struct _SNodo {
-    struct DProvincia *datos;
+    DProvincia *datos;
     struct _SNodo *sig;
 } SNodo;
 
